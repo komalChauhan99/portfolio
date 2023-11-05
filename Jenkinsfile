@@ -30,8 +30,9 @@ pipeline {
         stage('Deploy to Apache') {
             steps {
                 script {
-                    def sourceDir = "C:\Users\HP\Desktop\portfolio-main"
-                    def targetDir = "C:\Apache24\htdocs"
+                    def sourceDir = "C:\\Users\\HP\\Desktop\\portfolio-main"
+
+                    def targetDir = "C:\\Apache24\\htdocs"
                     def copyResult = bat(script: "xcopy /s /e /y \"$sourceDir\" \"$targetDir\"", returnStatus: true)
                     if (copyResult == 0) {
                         currentBuild.result = 'SUCCESS'
